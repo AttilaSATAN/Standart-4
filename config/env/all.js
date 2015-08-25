@@ -15,13 +15,16 @@ module.exports = {
 			css: [
 				'public/lib/bootstrap/dist/css/bootstrap.css',
                 'public/lib/bootstrap/dist/css/bootstrap-theme.css'
+                
 			],
 			js: [
                 'public/lib/jquery/dist/jquery.js',
 				'public/lib/bootstrap/dist/js/bootstrap.js'
 			]
 		},
-		css: [],
+		css: [
+            'public/css/main.css'
+        ],
 		js: [],
 		tests: [
 			'public/lib/angular-mocks/angular-mocks.js',
