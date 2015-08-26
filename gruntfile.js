@@ -56,6 +56,7 @@ module.exports = function (grunt) {
                 options: {
                     nospawn: true,
                     livereload: true
+                    
                 }
             }
         },
@@ -63,7 +64,8 @@ module.exports = function (grunt) {
             development: {
                 options: {
                     paths: 'public/less/',
-                    optimization: 2
+                    optimization: 2,
+                    
                 },
                 files: {
                     'public/css/main.css': 'public/less/main.less'
