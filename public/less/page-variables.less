@@ -1,0 +1,33 @@
+//###########################################
+//##       Website Style Definitions       ##
+//###########################################
+
+// Content Definitions
+@MainContentWidth: 1024px;
+@ResponsoveWidthBegin: 1040px;
+
+
+// Font Types
+@FontHead: Arial, Verdana;
+@FontText: Arial, Verdana;
+@FontConsole: Courier New, Courier;
+
+@FontSizeNormalText: 18;
+@FontLineHeightNormalText: 22;
+
+
+// Import Styles from Plug-Ins
+
+@import (inline) '../lib/normalize-css/normalize.css';
+
+
+//   Load Less Tookit Mixins
+@import '../lib/CSSLessCollection/CSSLessCollectionDefinitions';
+@import '../lib/CSSLessCollection/CSSLessCollectionMixins';
+
+// bootstrap
+@import '../lib/bootstrap/less/bootstrap';
+
+//    Load Page Style files
+@import 'main';
+

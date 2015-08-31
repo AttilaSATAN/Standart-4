@@ -104,7 +104,10 @@ module.exports = function (db) {
             collection: config.sessionCollection
         })
     }));
-
+    app.use(function(req, res, next){
+        res.locals.user = res.user || null;
+        next();
+    });
     // use passport session
     app.use(passport.initialize());
     app.use(passport.session());

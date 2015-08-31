@@ -1,0 +1,103 @@
+// Load Website Style Definitions
+@import 'page-variables';
+html,
+body,
+main {
+    height: 100%;
+    overflow-x: hidden;
+}
+
+main {
+    padding-top: 10px;
+}
+.main-section-outer-wrapper,
+.main-section {
+    transition: all 0.5s ease;
+}
+//lg
+@media (min-width: @screen-lg-min) {
+    .main-section-outer-wrapper {
+        //        margin: 0 auto;
+        position: relative;
+        width: 340px;
+        height: 200px;
+        border-top: 3px solid silver;
+        background-color: white;
+    }
+    #projects {
+        overflow: hidden;
+        width: 278px;
+        .main-section {
+            background-color: white;
+            width: 340px;
+        }
+    }
+    #us {
+        width: 278px;
+        overflow: hidden;
+        .main-section {
+            background-color: white;
+            width: 340px;
+        }
+    }
+    #group {
+        margin-top: 30px;
+        height: 119px;
+        width: 213px;
+        .main-section {
+            background-color: white;
+            width: 340px;
+        }
+    }
+    #contact {
+        margin-top: 30px;
+        height: 119px;
+        width: 213px;
+        .main-section {
+            background-color: white;
+            width: 340px;
+        }
+    }
+    .main-section {
+        width: 100%;
+        position: absolute;
+        bottom: -29px;
+        transform-origin: 0% 0%;
+        transform: rotate(-35.5deg);
+        border-top: 3px solid silver;
+        a {
+            display: block;
+            width: 100%;
+            h1 {
+                display: block;
+                width: 100%;
+                text-align: right;
+                margin-top: 0;
+                padding-top: 0;
+                font-size: 16px;
+                padding-right: 10px;
+                color: silver;
+            }
+        }
+        &.active {
+            transform: rotate(0);
+            bottom: 50px;
+            width: 100% !important;
+        }
+    }
+}
+@media (max-width: @screen-xs-max) {
+    body {
+        background-color: red;
+    }
+}
+@media (min-width: @screen-sm-min) and (max-width: @screen-sm-max) {
+    body {
+        background-color: blue;
+    }
+}
+@media (min-width: @screen-md-min) and (max-width: @screen-md-max) {
+    body {
+        background-color: yellow;
+    }
+}

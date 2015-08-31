@@ -84,7 +84,7 @@ module.exports = function (grunt) {
         },
         csslint: {
             options: {
-                csslintrc: '.csslintrc',
+                
             },
             all: {
                 src: watchFiles.clientCSS
