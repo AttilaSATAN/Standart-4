@@ -9,6 +9,7 @@ module.exports = {
 				'public/lib/bootstrap/dist/css/bootstrap-theme.min.css'
 			],
 			js: [
+                'public/lib/modernizr/modernizr.js',
                 'public/lib/jquery/dist/jquery.min.js',
 				'public/lib/bootstrap/dist/js/bootstrap.min.js'
 			]

@@ -65,7 +65,7 @@ module.exports = function (grunt) {
                 options: {
                     paths: 'public/less/',
                     optimization: 2,
-                    
+                    livereload: true
                 },
                 files: {
                     'public/css/main.css': 'public/less/main.less'
@@ -83,12 +83,12 @@ module.exports = function (grunt) {
             }
         },
         csslint: {
-            options: {
-                
-            },
-            all: {
-                src: watchFiles.clientCSS
-            }
+//            options: {
+//                
+//            },
+//            all: {
+//                src: watchFiles.clientCSS
+//            }
         },
         uglify: {
             production: {

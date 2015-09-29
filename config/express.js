@@ -52,6 +52,7 @@ module.exports = function (db) {
     // Passing the request url to environment locals
     app.use(function (req, res, next) {
         res.locals.url = req.protocol + '://' + req.headers.host + req.url;
+        res.locals.hostname = req.headers.host;
         next();
     });
 
@@ -128,6 +129,7 @@ module.exports = function (db) {
     // Globbing routing files
     config.getGlobbedFiles('./app/routes/**/*.js').forEach(function (routePath) {
         require(path.resolve(routePath))(app);
+        console.log(routePath)
     });
 
     // Assume 'not found' in the error msgs is a 404. this is somewhat silly, but valid, you can do whatever you like, set properties, use instanceof etc.
