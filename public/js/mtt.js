@@ -122,13 +122,12 @@
 
 
             //
-            $('.main-link').on('click', function (e) {
+            $('.menu-main-link').on('click', function (e) {
 
                 e.preventDefault();
 
                 var $link = $(this),
-                    href = $link.attr('href'),
-                    stateName = $link.parents('.main-section-outer-wrapper')[0].id;
+                    href = $link.attr('href');
                 mtt.navigate(href);
 
             });

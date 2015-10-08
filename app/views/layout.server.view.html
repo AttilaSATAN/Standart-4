@@ -47,7 +47,10 @@
 <!--	<header class="navbar navbar-fixed-top navbar-inverse"></header>-->
 	<section class="content">
 		<section class="container">
-			{% block content %}{% endblock %}
+			{% block menu %}{% endblock %}
+		</section>
+		<section class="container-fluid">
+		    {% block content %}{% endblock %}
 		</section>
 	</section>
 
