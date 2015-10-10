@@ -75,18 +75,28 @@
             }
         },
         navigate: function (path) {
-            var state;
+            var state,
+                $body = $('body').attr('class', ''),
+                noAnimationTimer = setTimeout(function(){
+                    clearTimeout(noAnimationTimer);
+                    $body.addClass('no-animation');
+                    $body.removeClass('play-animation');
+                }, 3500);
             if (path && mtt.statesByUrl[path]) {
+                
                 state = mtt.statesByUrl[path];
+                $body.addClass('state-' + state.name);
+                $body.addClass('play-animation');
+                
 
-                $('body').attr('class', '').addClass('state-' + state.name);
 
                 if (Modernizr.history) {
                     history.pushState(null, null, path);
                 }
             } else {
-
-                $('body').attr('class', '').addClass('state-root');
+                
+                $body.addClass('play-animation');
+                $body.attr('class', '').addClass('state-root');
 
             }
 
