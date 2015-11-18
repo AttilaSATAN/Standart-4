@@ -1,12 +1,24 @@
 // 'mc-*' for menu-collapse
+// 'me-*' for menu-expend
+// 'mf-*' for menu-fade
 @keyframes mc-menu-section {
     from {
-        margin-top:100px;
+        margin-top: 100px;
         width: 240px;
     }
     to {
         margin-top: 0;
         width: 100%;
+    }
+}
+@keyframes me-menu-section {
+    from {
+        margin-top: 0;
+        width: 100%;
+    }
+    to {
+        margin-top: 100px;
+        width: 240px;
     }
 }
 @keyframes mc-menu-inner-wrapper-pu {
@@ -17,17 +29,24 @@
         height: 17px;
     }
 }
+@keyframes me-menu-inner-wrapper-pu {
+    from {
+        height: 17px;
+    }
+    to {
+        height: 170px;
+    }
+}
 @keyframes mc-menu-inner-wrapper-gc {
     from {
         height: 150px;
     }
     to {
         height: 17px;
-        
     }
 }
 @keyframes mc-menu-top-border-pu {
-    from{
+    from {
         width: 240px;
     }
     to {
@@ -35,22 +54,21 @@
     }
 }
 @keyframes mc-menu-top-border-gc {
-    0%{
+    0% {
         width: 142px;
         top: 50px;
     }
     50% {
-        top:0;
+        top: 0;
     }
-    100%{
+    100% {
         width: 100%;
     }
 }
-
 @keyframes mc-menu-main-link-wrapper-pu {
-    from{
+    from {
         left: -52px;
-        width:291px;
+        width: 291px;
         transform: rotate(-35.5deg);
     }
     to {
@@ -60,14 +78,14 @@
     }
 }
 @keyframes mc-menu-main-link-wrapper-gc {
-    from{
+    from {
         left: -52px;
         top: -19px;
-        width:291px;
+        width: 291px;
         transform: rotate(-35.5deg);
     }
     to {
-        top:0;
+        top: 0;
         left: 0;
         width: 100%;
         transform: rotate(0deg);

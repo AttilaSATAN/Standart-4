@@ -20,7 +20,8 @@ module.exports = {
 			js: [
                 'public/lib/modernizr/modernizr.js',
                 'public/lib/jquery/dist/jquery.js',
-				'public/lib/bootstrap/dist/js/bootstrap.js'
+				'public/lib/bootstrap/dist/js/bootstrap.js',
+                'public/lib/lodash/lodash.js'
 			]
 		},
 		css: [

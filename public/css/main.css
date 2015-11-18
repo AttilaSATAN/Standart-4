@@ -7189,14 +7189,54 @@ button.close {
     display: none !important;
   }
 }
-body {
-  background-color: #e3e3df;
+html {
+  height: 100%;
+  box-sizing: border-box;
 }
-.menu-section,
-.menu-outer-wrapper,
+body {
+  height: 100%;
+  color: #908f8d;
+  background-color: #908f8d;
+  overflow: hidden;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+/*----- MENU -----------*/
+.root-state .menu-section {
+  width: 100%;
+}
+.root-state .main-view {
+  width: 0;
+  transform: translate(300px, 0);
+}
+.main-view {
+  transform: translate(0, 0);
+  height: 100%;
+  float: right;
+  width: 100%;
+  background-color: #fefefe;
+  z-index: 1;
+}
+.menu-section {
+  z-index: 2;
+  transform: translate(0, 0);
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #e3e3df;
+  height: 100%;
+  width: 230px;
+}
+.menu-outer-wrapper {
+  width: 200px;
+  margin-top: 20px;
+  margin: 0 auto;
+}
 .menu-inner-wrapper {
   width: 100%;
-  margin: 0 auto;
 }
 .menu-top-border {
   border-top: 3px solid #908f8d;
@@ -7207,7 +7247,7 @@ body {
 }
 .menu-main-link-wrapper {
   position: absolute;
-  width: 291px;
+  width: 244px;
   transform: rotate(-35.5deg);
   transform-origin: 100% 0;
   border-top: 3px solid #908f8d;
@@ -7226,389 +7266,136 @@ a.menu-main-link h1 {
   color: #908f8d;
   font-weight: 700;
 }
-body.state-root .menu-section {
-  width: 240px;
-  margin-top: 100px;
+#projects.menu-inner-wrapper,
+#us.menu-inner-wrapper {
+  height: 142px;
 }
-body.state-root #projects.menu-inner-wrapper,
-body.state-root #us.menu-inner-wrapper {
-  height: 170px;
+#projects.menu-inner-wrapper .menu-top-border,
+#us.menu-inner-wrapper .menu-top-border {
+  width: 200px;
 }
-body.state-root #projects.menu-inner-wrapper .menu-top-border,
-body.state-root #us.menu-inner-wrapper .menu-top-border {
-  width: 240px;
-}
-body.state-root #projects.menu-inner-wrapper .menu-main-link-wrapper,
-body.state-root #us.menu-inner-wrapper .menu-main-link-wrapper {
+#projects.menu-inner-wrapper .menu-main-link-wrapper,
+#us.menu-inner-wrapper .menu-main-link-wrapper {
   top: 0;
-  left: -52px;
+  left: -45px;
 }
-body.state-root #group.menu-inner-wrapper,
-body.state-root #contact.menu-inner-wrapper {
-  height: 150px;
+#group.menu-inner-wrapper,
+#contact.menu-inner-wrapper {
+  height: 120px;
 }
-body.state-root #group.menu-inner-wrapper .menu-top-border,
-body.state-root #contact.menu-inner-wrapper .menu-top-border {
-  width: 142px;
+#group.menu-inner-wrapper .menu-top-border,
+#contact.menu-inner-wrapper .menu-top-border {
+  width: 100px;
   top: 50px;
 }
-body.state-root #group.menu-inner-wrapper .menu-main-link-wrapper,
-body.state-root #contact.menu-inner-wrapper .menu-main-link-wrapper {
+#group.menu-inner-wrapper .menu-main-link-wrapper,
+#contact.menu-inner-wrapper .menu-main-link-wrapper {
   top: -19px;
-  left: -52px;
+  left: -47px;
 }
-body.state-projects.play-animation #projects.menu-inner-wrapper,
-body.state-us.play-animation #projects.menu-inner-wrapper,
-body.state-group.play-animation #projects.menu-inner-wrapper,
-body.state-contact.play-animation #projects.menu-inner-wrapper,
-body.state-projects.play-animation #us.menu-inner-wrapper,
-body.state-us.play-animation #us.menu-inner-wrapper,
-body.state-group.play-animation #us.menu-inner-wrapper,
-body.state-contact.play-animation #us.menu-inner-wrapper {
-  height: 17px;
-}
-body.state-projects.play-animation #projects.menu-inner-wrapper .menu-top-border,
-body.state-us.play-animation #projects.menu-inner-wrapper .menu-top-border,
-body.state-group.play-animation #projects.menu-inner-wrapper .menu-top-border,
-body.state-contact.play-animation #projects.menu-inner-wrapper .menu-top-border,
-body.state-projects.play-animation #us.menu-inner-wrapper .menu-top-border,
-body.state-us.play-animation #us.menu-inner-wrapper .menu-top-border,
-body.state-group.play-animation #us.menu-inner-wrapper .menu-top-border,
-body.state-contact.play-animation #us.menu-inner-wrapper .menu-top-border {
-  width: 100%;
-}
-body.state-projects.play-animation #projects.menu-inner-wrapper .menu-main-link-wrapper,
-body.state-us.play-animation #projects.menu-inner-wrapper .menu-main-link-wrapper,
-body.state-group.play-animation #projects.menu-inner-wrapper .menu-main-link-wrapper,
-body.state-contact.play-animation #projects.menu-inner-wrapper .menu-main-link-wrapper,
-body.state-projects.play-animation #us.menu-inner-wrapper .menu-main-link-wrapper,
-body.state-us.play-animation #us.menu-inner-wrapper .menu-main-link-wrapper,
-body.state-group.play-animation #us.menu-inner-wrapper .menu-main-link-wrapper,
-body.state-contact.play-animation #us.menu-inner-wrapper .menu-main-link-wrapper {
-  left: 0;
-  width: 100%;
-  transform: rotate(0deg);
-}
-body.state-projects.play-animation #group.menu-inner-wrapper,
-body.state-us.play-animation #group.menu-inner-wrapper,
-body.state-group.play-animation #group.menu-inner-wrapper,
-body.state-contact.play-animation #group.menu-inner-wrapper,
-body.state-projects.play-animation #contact.menu-inner-wrapper,
-body.state-us.play-animation #contact.menu-inner-wrapper,
-body.state-group.play-animation #contact.menu-inner-wrapper,
-body.state-contact.play-animation #contact.menu-inner-wrapper {
-  height: 17px;
-}
-body.state-projects.play-animation #group.menu-inner-wrapper .menu-top-border,
-body.state-us.play-animation #group.menu-inner-wrapper .menu-top-border,
-body.state-group.play-animation #group.menu-inner-wrapper .menu-top-border,
-body.state-contact.play-animation #group.menu-inner-wrapper .menu-top-border,
-body.state-projects.play-animation #contact.menu-inner-wrapper .menu-top-border,
-body.state-us.play-animation #contact.menu-inner-wrapper .menu-top-border,
-body.state-group.play-animation #contact.menu-inner-wrapper .menu-top-border,
-body.state-contact.play-animation #contact.menu-inner-wrapper .menu-top-border {
-  top: 0;
-  width: 100%;
-}
-body.state-projects.play-animation #group.menu-inner-wrapper .menu-main-link-wrapper,
-body.state-us.play-animation #group.menu-inner-wrapper .menu-main-link-wrapper,
-body.state-group.play-animation #group.menu-inner-wrapper .menu-main-link-wrapper,
-body.state-contact.play-animation #group.menu-inner-wrapper .menu-main-link-wrapper,
-body.state-projects.play-animation #contact.menu-inner-wrapper .menu-main-link-wrapper,
-body.state-us.play-animation #contact.menu-inner-wrapper .menu-main-link-wrapper,
-body.state-group.play-animation #contact.menu-inner-wrapper .menu-main-link-wrapper,
-body.state-contact.play-animation #contact.menu-inner-wrapper .menu-main-link-wrapper {
-  top: 0;
-  width: 100%;
-  transform: rotate(0deg);
-}
-body.state-projects.play-animation .menu-section,
-body.state-us.play-animation .menu-section,
-body.state-group.play-animation .menu-section,
-body.state-contact.play-animation .menu-section {
-  animation: mc-menu-section 2s;
-}
-body.state-projects.play-animation #projects.menu-inner-wrapper,
-body.state-us.play-animation #projects.menu-inner-wrapper,
-body.state-group.play-animation #projects.menu-inner-wrapper,
-body.state-contact.play-animation #projects.menu-inner-wrapper,
-body.state-projects.play-animation #us.menu-inner-wrapper,
-body.state-us.play-animation #us.menu-inner-wrapper,
-body.state-group.play-animation #us.menu-inner-wrapper,
-body.state-contact.play-animation #us.menu-inner-wrapper {
-  animation: mc-menu-inner-wrapper-pu 1.5s;
-}
-body.state-projects.play-animation #projects.menu-inner-wrapper .menu-top-border,
-body.state-us.play-animation #projects.menu-inner-wrapper .menu-top-border,
-body.state-group.play-animation #projects.menu-inner-wrapper .menu-top-border,
-body.state-contact.play-animation #projects.menu-inner-wrapper .menu-top-border,
-body.state-projects.play-animation #us.menu-inner-wrapper .menu-top-border,
-body.state-us.play-animation #us.menu-inner-wrapper .menu-top-border,
-body.state-group.play-animation #us.menu-inner-wrapper .menu-top-border,
-body.state-contact.play-animation #us.menu-inner-wrapper .menu-top-border {
-  animation: mc-menu-top-border-pu 1s;
-}
-body.state-projects.play-animation #projects.menu-inner-wrapper .menu-main-link-wrapper,
-body.state-us.play-animation #projects.menu-inner-wrapper .menu-main-link-wrapper,
-body.state-group.play-animation #projects.menu-inner-wrapper .menu-main-link-wrapper,
-body.state-contact.play-animation #projects.menu-inner-wrapper .menu-main-link-wrapper,
-body.state-projects.play-animation #us.menu-inner-wrapper .menu-main-link-wrapper,
-body.state-us.play-animation #us.menu-inner-wrapper .menu-main-link-wrapper,
-body.state-group.play-animation #us.menu-inner-wrapper .menu-main-link-wrapper,
-body.state-contact.play-animation #us.menu-inner-wrapper .menu-main-link-wrapper {
-  animation: mc-menu-main-link-wrapper-pu 1s;
-}
-body.state-projects.play-animation #group.menu-inner-wrapper,
-body.state-us.play-animation #group.menu-inner-wrapper,
-body.state-group.play-animation #group.menu-inner-wrapper,
-body.state-contact.play-animation #group.menu-inner-wrapper,
-body.state-projects.play-animation #contact.menu-inner-wrapper,
-body.state-us.play-animation #contact.menu-inner-wrapper,
-body.state-group.play-animation #contact.menu-inner-wrapper,
-body.state-contact.play-animation #contact.menu-inner-wrapper {
-  animation: mc-menu-inner-wrapper-gc 1.5s;
-}
-body.state-projects.play-animation #group.menu-inner-wrapper .menu-top-border,
-body.state-us.play-animation #group.menu-inner-wrapper .menu-top-border,
-body.state-group.play-animation #group.menu-inner-wrapper .menu-top-border,
-body.state-contact.play-animation #group.menu-inner-wrapper .menu-top-border,
-body.state-projects.play-animation #contact.menu-inner-wrapper .menu-top-border,
-body.state-us.play-animation #contact.menu-inner-wrapper .menu-top-border,
-body.state-group.play-animation #contact.menu-inner-wrapper .menu-top-border,
-body.state-contact.play-animation #contact.menu-inner-wrapper .menu-top-border {
-  animation: mc-menu-top-border-gc 1s;
-}
-body.state-projects.play-animation #group.menu-inner-wrapper .menu-main-link-wrapper,
-body.state-us.play-animation #group.menu-inner-wrapper .menu-main-link-wrapper,
-body.state-group.play-animation #group.menu-inner-wrapper .menu-main-link-wrapper,
-body.state-contact.play-animation #group.menu-inner-wrapper .menu-main-link-wrapper,
-body.state-projects.play-animation #contact.menu-inner-wrapper .menu-main-link-wrapper,
-body.state-us.play-animation #contact.menu-inner-wrapper .menu-main-link-wrapper,
-body.state-group.play-animation #contact.menu-inner-wrapper .menu-main-link-wrapper,
-body.state-contact.play-animation #contact.menu-inner-wrapper .menu-main-link-wrapper {
-  animation: mc-menu-main-link-wrapper-gc 1s;
-}
-body.state-projects.play-animation #projects.menu-inner-wrapper,
-body.state-us.play-animation #projects.menu-inner-wrapper,
-body.state-group.play-animation #projects.menu-inner-wrapper,
-body.state-contact.play-animation #projects.menu-inner-wrapper {
-  animation-duration: 1.5s;
-}
-body.state-projects.play-animation #projects.menu-inner-wrapper .menu-top-border,
-body.state-us.play-animation #projects.menu-inner-wrapper .menu-top-border,
-body.state-group.play-animation #projects.menu-inner-wrapper .menu-top-border,
-body.state-contact.play-animation #projects.menu-inner-wrapper .menu-top-border {
-  animation-duration: 1s;
-}
-body.state-projects.play-animation #projects.menu-inner-wrapper .menu-main-link-wrapper,
-body.state-us.play-animation #projects.menu-inner-wrapper .menu-main-link-wrapper,
-body.state-group.play-animation #projects.menu-inner-wrapper .menu-main-link-wrapper,
-body.state-contact.play-animation #projects.menu-inner-wrapper .menu-main-link-wrapper {
-  animation-duration: 1s;
-}
-body.state-projects.play-animation #us.menu-inner-wrapper,
-body.state-us.play-animation #us.menu-inner-wrapper,
-body.state-group.play-animation #us.menu-inner-wrapper,
-body.state-contact.play-animation #us.menu-inner-wrapper {
-  animation-duration: 2s;
-}
-body.state-projects.play-animation #us.menu-inner-wrapper .menu-top-border,
-body.state-us.play-animation #us.menu-inner-wrapper .menu-top-border,
-body.state-group.play-animation #us.menu-inner-wrapper .menu-top-border,
-body.state-contact.play-animation #us.menu-inner-wrapper .menu-top-border {
-  animation-duration: 1.5s;
-}
-body.state-projects.play-animation #us.menu-inner-wrapper .menu-main-link-wrapper,
-body.state-us.play-animation #us.menu-inner-wrapper .menu-main-link-wrapper,
-body.state-group.play-animation #us.menu-inner-wrapper .menu-main-link-wrapper,
-body.state-contact.play-animation #us.menu-inner-wrapper .menu-main-link-wrapper {
-  animation-duration: 1.5s;
-}
-body.state-projects.play-animation #group.menu-inner-wrapper,
-body.state-us.play-animation #group.menu-inner-wrapper,
-body.state-group.play-animation #group.menu-inner-wrapper,
-body.state-contact.play-animation #group.menu-inner-wrapper {
-  animation-duration: 2.5s;
-}
-body.state-projects.play-animation #group.menu-inner-wrapper .menu-top-border,
-body.state-us.play-animation #group.menu-inner-wrapper .menu-top-border,
-body.state-group.play-animation #group.menu-inner-wrapper .menu-top-border,
-body.state-contact.play-animation #group.menu-inner-wrapper .menu-top-border {
-  animation-duration: 2s;
-}
-body.state-projects.play-animation #group.menu-inner-wrapper .menu-main-link-wrapper,
-body.state-us.play-animation #group.menu-inner-wrapper .menu-main-link-wrapper,
-body.state-group.play-animation #group.menu-inner-wrapper .menu-main-link-wrapper,
-body.state-contact.play-animation #group.menu-inner-wrapper .menu-main-link-wrapper {
-  animation-duration: 2s;
-}
-body.state-projects.play-animation #contact.menu-inner-wrapper,
-body.state-us.play-animation #contact.menu-inner-wrapper,
-body.state-group.play-animation #contact.menu-inner-wrapper,
-body.state-contact.play-animation #contact.menu-inner-wrapper {
-  animation-duration: 3s;
-}
-body.state-projects.play-animation #contact.menu-inner-wrapper .menu-top-border,
-body.state-us.play-animation #contact.menu-inner-wrapper .menu-top-border,
-body.state-group.play-animation #contact.menu-inner-wrapper .menu-top-border,
-body.state-contact.play-animation #contact.menu-inner-wrapper .menu-top-border {
-  animation-duration: 2.5s;
-}
-body.state-projects.play-animation #contact.menu-inner-wrapper .menu-main-link-wrapper,
-body.state-us.play-animation #contact.menu-inner-wrapper .menu-main-link-wrapper,
-body.state-group.play-animation #contact.menu-inner-wrapper .menu-main-link-wrapper,
-body.state-contact.play-animation #contact.menu-inner-wrapper .menu-main-link-wrapper {
-  animation-duration: 2.5s;
-}
-body.state-projects.no-animation #projects.menu-inner-wrapper,
-body.state-us.no-animation #projects.menu-inner-wrapper,
-body.state-group.no-animation #projects.menu-inner-wrapper,
-body.state-contact.no-animation #projects.menu-inner-wrapper,
-body.state-projects.no-animation #us.menu-inner-wrapper,
-body.state-us.no-animation #us.menu-inner-wrapper,
-body.state-group.no-animation #us.menu-inner-wrapper,
-body.state-contact.no-animation #us.menu-inner-wrapper {
-  height: 17px;
-}
-body.state-projects.no-animation #projects.menu-inner-wrapper .menu-top-border,
-body.state-us.no-animation #projects.menu-inner-wrapper .menu-top-border,
-body.state-group.no-animation #projects.menu-inner-wrapper .menu-top-border,
-body.state-contact.no-animation #projects.menu-inner-wrapper .menu-top-border,
-body.state-projects.no-animation #us.menu-inner-wrapper .menu-top-border,
-body.state-us.no-animation #us.menu-inner-wrapper .menu-top-border,
-body.state-group.no-animation #us.menu-inner-wrapper .menu-top-border,
-body.state-contact.no-animation #us.menu-inner-wrapper .menu-top-border {
-  width: 100%;
-}
-body.state-projects.no-animation #projects.menu-inner-wrapper .menu-main-link-wrapper,
-body.state-us.no-animation #projects.menu-inner-wrapper .menu-main-link-wrapper,
-body.state-group.no-animation #projects.menu-inner-wrapper .menu-main-link-wrapper,
-body.state-contact.no-animation #projects.menu-inner-wrapper .menu-main-link-wrapper,
-body.state-projects.no-animation #us.menu-inner-wrapper .menu-main-link-wrapper,
-body.state-us.no-animation #us.menu-inner-wrapper .menu-main-link-wrapper,
-body.state-group.no-animation #us.menu-inner-wrapper .menu-main-link-wrapper,
-body.state-contact.no-animation #us.menu-inner-wrapper .menu-main-link-wrapper {
-  left: 0;
-  width: 100%;
-  transform: rotate(0deg);
-}
-body.state-projects.no-animation #group.menu-inner-wrapper,
-body.state-us.no-animation #group.menu-inner-wrapper,
-body.state-group.no-animation #group.menu-inner-wrapper,
-body.state-contact.no-animation #group.menu-inner-wrapper,
-body.state-projects.no-animation #contact.menu-inner-wrapper,
-body.state-us.no-animation #contact.menu-inner-wrapper,
-body.state-group.no-animation #contact.menu-inner-wrapper,
-body.state-contact.no-animation #contact.menu-inner-wrapper {
-  height: 17px;
-}
-body.state-projects.no-animation #group.menu-inner-wrapper .menu-top-border,
-body.state-us.no-animation #group.menu-inner-wrapper .menu-top-border,
-body.state-group.no-animation #group.menu-inner-wrapper .menu-top-border,
-body.state-contact.no-animation #group.menu-inner-wrapper .menu-top-border,
-body.state-projects.no-animation #contact.menu-inner-wrapper .menu-top-border,
-body.state-us.no-animation #contact.menu-inner-wrapper .menu-top-border,
-body.state-group.no-animation #contact.menu-inner-wrapper .menu-top-border,
-body.state-contact.no-animation #contact.menu-inner-wrapper .menu-top-border {
-  top: 0;
-  width: 100%;
-}
-body.state-projects.no-animation #group.menu-inner-wrapper .menu-main-link-wrapper,
-body.state-us.no-animation #group.menu-inner-wrapper .menu-main-link-wrapper,
-body.state-group.no-animation #group.menu-inner-wrapper .menu-main-link-wrapper,
-body.state-contact.no-animation #group.menu-inner-wrapper .menu-main-link-wrapper,
-body.state-projects.no-animation #contact.menu-inner-wrapper .menu-main-link-wrapper,
-body.state-us.no-animation #contact.menu-inner-wrapper .menu-main-link-wrapper,
-body.state-group.no-animation #contact.menu-inner-wrapper .menu-main-link-wrapper,
-body.state-contact.no-animation #contact.menu-inner-wrapper .menu-main-link-wrapper {
-  top: 0;
-  width: 100%;
-  transform: rotate(0deg);
+/*------------------------*/
+/*--------- MAIN VIEW-----*/
+.root-state .content-section .page-header h1 {
+  transform: translate(0, 100px);
 }
 .content-section {
-  background-color: #908f8d;
-  color: #e3e3df;
+  padding-left: 300px;
 }
-@keyframes mc-menu-section {
+.content-section .page-header {
+  padding-bottom: 0;
+  overflow-y: hidden;
+  border-bottom: 3px solid #908f8d;
+}
+.content-section .page-header h1 {
+  text-align: right;
+  transform: translate(0, 0);
+}
+@keyframes root-state-anim-out-menu-section {
   from {
-    margin-top: 100px;
-    width: 240px;
-  }
-  to {
-    margin-top: 0;
     width: 100%;
   }
-}
-@keyframes mc-menu-inner-wrapper-pu {
-  from {
-    height: 170px;
-  }
   to {
-    height: 17px;
+    width: 230px;
   }
 }
-@keyframes mc-menu-inner-wrapper-gc {
+@keyframes root-state-anim-in-menu-section {
   from {
-    height: 150px;
-  }
-  to {
-    height: 17px;
-  }
-}
-@keyframes mc-menu-top-border-pu {
-  from {
-    width: 240px;
+    width: 230px;
   }
   to {
     width: 100%;
   }
 }
-@keyframes mc-menu-top-border-gc {
+@keyframes root-state-anim-out-main-view {
   0% {
-    width: 142px;
-    top: 50px;
+    width: 0;
+    transform: translate(300px, 0);
   }
   50% {
-    top: 0;
+    transform: translate(300px, 0);
+    width: 0;
   }
-  100% {
+  to {
+    transform: translate(0, 0);
     width: 100%;
   }
 }
-@keyframes mc-menu-main-link-wrapper-pu {
-  from {
-    left: -52px;
-    width: 291px;
-    transform: rotate(-35.5deg);
+@keyframes projects-state-anim-in-page-header-h1 {
+  0% {
+    transform: translate(0, 100px);
   }
-  to {
-    left: 0;
-    width: 100%;
-    transform: rotate(0deg);
+  80% {
+    transform: translate(0, 0);
   }
 }
-@keyframes mc-menu-main-link-wrapper-gc {
-  from {
-    left: -52px;
-    top: -19px;
-    width: 291px;
-    transform: rotate(-35.5deg);
-  }
-  to {
-    top: 0;
-    left: 0;
-    width: 100%;
-    transform: rotate(0deg);
-  }
+html {
+  height: 100%;
+  box-sizing: border-box;
 }
 body {
-  background-color: #e3e3df;
+  height: 100%;
+  color: #908f8d;
+  background-color: #908f8d;
+  overflow: hidden;
 }
-.menu-section,
-.menu-outer-wrapper,
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+/*----- MENU -----------*/
+.root-state .menu-section {
+  width: 100%;
+}
+.root-state .main-view {
+  width: 0;
+  transform: translate(300px, 0);
+}
+.main-view {
+  transform: translate(0, 0);
+  height: 100%;
+  float: right;
+  width: 100%;
+  background-color: #fefefe;
+  z-index: 1;
+}
+.menu-section {
+  z-index: 2;
+  transform: translate(0, 0);
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #e3e3df;
+  height: 100%;
+  width: 230px;
+}
+.menu-outer-wrapper {
+  width: 200px;
+  margin-top: 20px;
+  margin: 0 auto;
+}
 .menu-inner-wrapper {
   width: 100%;
-  margin: 0 auto;
 }
 .menu-top-border {
   border-top: 3px solid #908f8d;
@@ -7619,7 +7406,7 @@ body {
 }
 .menu-main-link-wrapper {
   position: absolute;
-  width: 291px;
+  width: 244px;
   transform: rotate(-35.5deg);
   transform-origin: 100% 0;
   border-top: 3px solid #908f8d;
@@ -7638,306 +7425,47 @@ a.menu-main-link h1 {
   color: #908f8d;
   font-weight: 700;
 }
-body.state-root .menu-section {
-  width: 240px;
-  margin-top: 100px;
+#projects.menu-inner-wrapper,
+#us.menu-inner-wrapper {
+  height: 142px;
 }
-body.state-root #projects.menu-inner-wrapper,
-body.state-root #us.menu-inner-wrapper {
-  height: 170px;
+#projects.menu-inner-wrapper .menu-top-border,
+#us.menu-inner-wrapper .menu-top-border {
+  width: 200px;
 }
-body.state-root #projects.menu-inner-wrapper .menu-top-border,
-body.state-root #us.menu-inner-wrapper .menu-top-border {
-  width: 240px;
-}
-body.state-root #projects.menu-inner-wrapper .menu-main-link-wrapper,
-body.state-root #us.menu-inner-wrapper .menu-main-link-wrapper {
+#projects.menu-inner-wrapper .menu-main-link-wrapper,
+#us.menu-inner-wrapper .menu-main-link-wrapper {
   top: 0;
-  left: -52px;
+  left: -45px;
 }
-body.state-root #group.menu-inner-wrapper,
-body.state-root #contact.menu-inner-wrapper {
-  height: 150px;
+#group.menu-inner-wrapper,
+#contact.menu-inner-wrapper {
+  height: 120px;
 }
-body.state-root #group.menu-inner-wrapper .menu-top-border,
-body.state-root #contact.menu-inner-wrapper .menu-top-border {
-  width: 142px;
+#group.menu-inner-wrapper .menu-top-border,
+#contact.menu-inner-wrapper .menu-top-border {
+  width: 100px;
   top: 50px;
 }
-body.state-root #group.menu-inner-wrapper .menu-main-link-wrapper,
-body.state-root #contact.menu-inner-wrapper .menu-main-link-wrapper {
+#group.menu-inner-wrapper .menu-main-link-wrapper,
+#contact.menu-inner-wrapper .menu-main-link-wrapper {
   top: -19px;
-  left: -52px;
+  left: -47px;
 }
-body.state-projects.play-animation #projects.menu-inner-wrapper,
-body.state-us.play-animation #projects.menu-inner-wrapper,
-body.state-group.play-animation #projects.menu-inner-wrapper,
-body.state-contact.play-animation #projects.menu-inner-wrapper,
-body.state-projects.play-animation #us.menu-inner-wrapper,
-body.state-us.play-animation #us.menu-inner-wrapper,
-body.state-group.play-animation #us.menu-inner-wrapper,
-body.state-contact.play-animation #us.menu-inner-wrapper {
-  height: 17px;
-}
-body.state-projects.play-animation #projects.menu-inner-wrapper .menu-top-border,
-body.state-us.play-animation #projects.menu-inner-wrapper .menu-top-border,
-body.state-group.play-animation #projects.menu-inner-wrapper .menu-top-border,
-body.state-contact.play-animation #projects.menu-inner-wrapper .menu-top-border,
-body.state-projects.play-animation #us.menu-inner-wrapper .menu-top-border,
-body.state-us.play-animation #us.menu-inner-wrapper .menu-top-border,
-body.state-group.play-animation #us.menu-inner-wrapper .menu-top-border,
-body.state-contact.play-animation #us.menu-inner-wrapper .menu-top-border {
-  width: 100%;
-}
-body.state-projects.play-animation #projects.menu-inner-wrapper .menu-main-link-wrapper,
-body.state-us.play-animation #projects.menu-inner-wrapper .menu-main-link-wrapper,
-body.state-group.play-animation #projects.menu-inner-wrapper .menu-main-link-wrapper,
-body.state-contact.play-animation #projects.menu-inner-wrapper .menu-main-link-wrapper,
-body.state-projects.play-animation #us.menu-inner-wrapper .menu-main-link-wrapper,
-body.state-us.play-animation #us.menu-inner-wrapper .menu-main-link-wrapper,
-body.state-group.play-animation #us.menu-inner-wrapper .menu-main-link-wrapper,
-body.state-contact.play-animation #us.menu-inner-wrapper .menu-main-link-wrapper {
-  left: 0;
-  width: 100%;
-  transform: rotate(0deg);
-}
-body.state-projects.play-animation #group.menu-inner-wrapper,
-body.state-us.play-animation #group.menu-inner-wrapper,
-body.state-group.play-animation #group.menu-inner-wrapper,
-body.state-contact.play-animation #group.menu-inner-wrapper,
-body.state-projects.play-animation #contact.menu-inner-wrapper,
-body.state-us.play-animation #contact.menu-inner-wrapper,
-body.state-group.play-animation #contact.menu-inner-wrapper,
-body.state-contact.play-animation #contact.menu-inner-wrapper {
-  height: 17px;
-}
-body.state-projects.play-animation #group.menu-inner-wrapper .menu-top-border,
-body.state-us.play-animation #group.menu-inner-wrapper .menu-top-border,
-body.state-group.play-animation #group.menu-inner-wrapper .menu-top-border,
-body.state-contact.play-animation #group.menu-inner-wrapper .menu-top-border,
-body.state-projects.play-animation #contact.menu-inner-wrapper .menu-top-border,
-body.state-us.play-animation #contact.menu-inner-wrapper .menu-top-border,
-body.state-group.play-animation #contact.menu-inner-wrapper .menu-top-border,
-body.state-contact.play-animation #contact.menu-inner-wrapper .menu-top-border {
-  top: 0;
-  width: 100%;
-}
-body.state-projects.play-animation #group.menu-inner-wrapper .menu-main-link-wrapper,
-body.state-us.play-animation #group.menu-inner-wrapper .menu-main-link-wrapper,
-body.state-group.play-animation #group.menu-inner-wrapper .menu-main-link-wrapper,
-body.state-contact.play-animation #group.menu-inner-wrapper .menu-main-link-wrapper,
-body.state-projects.play-animation #contact.menu-inner-wrapper .menu-main-link-wrapper,
-body.state-us.play-animation #contact.menu-inner-wrapper .menu-main-link-wrapper,
-body.state-group.play-animation #contact.menu-inner-wrapper .menu-main-link-wrapper,
-body.state-contact.play-animation #contact.menu-inner-wrapper .menu-main-link-wrapper {
-  top: 0;
-  width: 100%;
-  transform: rotate(0deg);
-}
-body.state-projects.play-animation .menu-section,
-body.state-us.play-animation .menu-section,
-body.state-group.play-animation .menu-section,
-body.state-contact.play-animation .menu-section {
-  animation: mc-menu-section 2s;
-}
-body.state-projects.play-animation #projects.menu-inner-wrapper,
-body.state-us.play-animation #projects.menu-inner-wrapper,
-body.state-group.play-animation #projects.menu-inner-wrapper,
-body.state-contact.play-animation #projects.menu-inner-wrapper,
-body.state-projects.play-animation #us.menu-inner-wrapper,
-body.state-us.play-animation #us.menu-inner-wrapper,
-body.state-group.play-animation #us.menu-inner-wrapper,
-body.state-contact.play-animation #us.menu-inner-wrapper {
-  animation: mc-menu-inner-wrapper-pu 1.5s;
-}
-body.state-projects.play-animation #projects.menu-inner-wrapper .menu-top-border,
-body.state-us.play-animation #projects.menu-inner-wrapper .menu-top-border,
-body.state-group.play-animation #projects.menu-inner-wrapper .menu-top-border,
-body.state-contact.play-animation #projects.menu-inner-wrapper .menu-top-border,
-body.state-projects.play-animation #us.menu-inner-wrapper .menu-top-border,
-body.state-us.play-animation #us.menu-inner-wrapper .menu-top-border,
-body.state-group.play-animation #us.menu-inner-wrapper .menu-top-border,
-body.state-contact.play-animation #us.menu-inner-wrapper .menu-top-border {
-  animation: mc-menu-top-border-pu 1s;
-}
-body.state-projects.play-animation #projects.menu-inner-wrapper .menu-main-link-wrapper,
-body.state-us.play-animation #projects.menu-inner-wrapper .menu-main-link-wrapper,
-body.state-group.play-animation #projects.menu-inner-wrapper .menu-main-link-wrapper,
-body.state-contact.play-animation #projects.menu-inner-wrapper .menu-main-link-wrapper,
-body.state-projects.play-animation #us.menu-inner-wrapper .menu-main-link-wrapper,
-body.state-us.play-animation #us.menu-inner-wrapper .menu-main-link-wrapper,
-body.state-group.play-animation #us.menu-inner-wrapper .menu-main-link-wrapper,
-body.state-contact.play-animation #us.menu-inner-wrapper .menu-main-link-wrapper {
-  animation: mc-menu-main-link-wrapper-pu 1s;
-}
-body.state-projects.play-animation #group.menu-inner-wrapper,
-body.state-us.play-animation #group.menu-inner-wrapper,
-body.state-group.play-animation #group.menu-inner-wrapper,
-body.state-contact.play-animation #group.menu-inner-wrapper,
-body.state-projects.play-animation #contact.menu-inner-wrapper,
-body.state-us.play-animation #contact.menu-inner-wrapper,
-body.state-group.play-animation #contact.menu-inner-wrapper,
-body.state-contact.play-animation #contact.menu-inner-wrapper {
-  animation: mc-menu-inner-wrapper-gc 1.5s;
-}
-body.state-projects.play-animation #group.menu-inner-wrapper .menu-top-border,
-body.state-us.play-animation #group.menu-inner-wrapper .menu-top-border,
-body.state-group.play-animation #group.menu-inner-wrapper .menu-top-border,
-body.state-contact.play-animation #group.menu-inner-wrapper .menu-top-border,
-body.state-projects.play-animation #contact.menu-inner-wrapper .menu-top-border,
-body.state-us.play-animation #contact.menu-inner-wrapper .menu-top-border,
-body.state-group.play-animation #contact.menu-inner-wrapper .menu-top-border,
-body.state-contact.play-animation #contact.menu-inner-wrapper .menu-top-border {
-  animation: mc-menu-top-border-gc 1s;
-}
-body.state-projects.play-animation #group.menu-inner-wrapper .menu-main-link-wrapper,
-body.state-us.play-animation #group.menu-inner-wrapper .menu-main-link-wrapper,
-body.state-group.play-animation #group.menu-inner-wrapper .menu-main-link-wrapper,
-body.state-contact.play-animation #group.menu-inner-wrapper .menu-main-link-wrapper,
-body.state-projects.play-animation #contact.menu-inner-wrapper .menu-main-link-wrapper,
-body.state-us.play-animation #contact.menu-inner-wrapper .menu-main-link-wrapper,
-body.state-group.play-animation #contact.menu-inner-wrapper .menu-main-link-wrapper,
-body.state-contact.play-animation #contact.menu-inner-wrapper .menu-main-link-wrapper {
-  animation: mc-menu-main-link-wrapper-gc 1s;
-}
-body.state-projects.play-animation #projects.menu-inner-wrapper,
-body.state-us.play-animation #projects.menu-inner-wrapper,
-body.state-group.play-animation #projects.menu-inner-wrapper,
-body.state-contact.play-animation #projects.menu-inner-wrapper {
-  animation-duration: 1.5s;
-}
-body.state-projects.play-animation #projects.menu-inner-wrapper .menu-top-border,
-body.state-us.play-animation #projects.menu-inner-wrapper .menu-top-border,
-body.state-group.play-animation #projects.menu-inner-wrapper .menu-top-border,
-body.state-contact.play-animation #projects.menu-inner-wrapper .menu-top-border {
-  animation-duration: 1s;
-}
-body.state-projects.play-animation #projects.menu-inner-wrapper .menu-main-link-wrapper,
-body.state-us.play-animation #projects.menu-inner-wrapper .menu-main-link-wrapper,
-body.state-group.play-animation #projects.menu-inner-wrapper .menu-main-link-wrapper,
-body.state-contact.play-animation #projects.menu-inner-wrapper .menu-main-link-wrapper {
-  animation-duration: 1s;
-}
-body.state-projects.play-animation #us.menu-inner-wrapper,
-body.state-us.play-animation #us.menu-inner-wrapper,
-body.state-group.play-animation #us.menu-inner-wrapper,
-body.state-contact.play-animation #us.menu-inner-wrapper {
-  animation-duration: 2s;
-}
-body.state-projects.play-animation #us.menu-inner-wrapper .menu-top-border,
-body.state-us.play-animation #us.menu-inner-wrapper .menu-top-border,
-body.state-group.play-animation #us.menu-inner-wrapper .menu-top-border,
-body.state-contact.play-animation #us.menu-inner-wrapper .menu-top-border {
-  animation-duration: 1.5s;
-}
-body.state-projects.play-animation #us.menu-inner-wrapper .menu-main-link-wrapper,
-body.state-us.play-animation #us.menu-inner-wrapper .menu-main-link-wrapper,
-body.state-group.play-animation #us.menu-inner-wrapper .menu-main-link-wrapper,
-body.state-contact.play-animation #us.menu-inner-wrapper .menu-main-link-wrapper {
-  animation-duration: 1.5s;
-}
-body.state-projects.play-animation #group.menu-inner-wrapper,
-body.state-us.play-animation #group.menu-inner-wrapper,
-body.state-group.play-animation #group.menu-inner-wrapper,
-body.state-contact.play-animation #group.menu-inner-wrapper {
-  animation-duration: 2.5s;
-}
-body.state-projects.play-animation #group.menu-inner-wrapper .menu-top-border,
-body.state-us.play-animation #group.menu-inner-wrapper .menu-top-border,
-body.state-group.play-animation #group.menu-inner-wrapper .menu-top-border,
-body.state-contact.play-animation #group.menu-inner-wrapper .menu-top-border {
-  animation-duration: 2s;
-}
-body.state-projects.play-animation #group.menu-inner-wrapper .menu-main-link-wrapper,
-body.state-us.play-animation #group.menu-inner-wrapper .menu-main-link-wrapper,
-body.state-group.play-animation #group.menu-inner-wrapper .menu-main-link-wrapper,
-body.state-contact.play-animation #group.menu-inner-wrapper .menu-main-link-wrapper {
-  animation-duration: 2s;
-}
-body.state-projects.play-animation #contact.menu-inner-wrapper,
-body.state-us.play-animation #contact.menu-inner-wrapper,
-body.state-group.play-animation #contact.menu-inner-wrapper,
-body.state-contact.play-animation #contact.menu-inner-wrapper {
-  animation-duration: 3s;
-}
-body.state-projects.play-animation #contact.menu-inner-wrapper .menu-top-border,
-body.state-us.play-animation #contact.menu-inner-wrapper .menu-top-border,
-body.state-group.play-animation #contact.menu-inner-wrapper .menu-top-border,
-body.state-contact.play-animation #contact.menu-inner-wrapper .menu-top-border {
-  animation-duration: 2.5s;
-}
-body.state-projects.play-animation #contact.menu-inner-wrapper .menu-main-link-wrapper,
-body.state-us.play-animation #contact.menu-inner-wrapper .menu-main-link-wrapper,
-body.state-group.play-animation #contact.menu-inner-wrapper .menu-main-link-wrapper,
-body.state-contact.play-animation #contact.menu-inner-wrapper .menu-main-link-wrapper {
-  animation-duration: 2.5s;
-}
-body.state-projects.no-animation #projects.menu-inner-wrapper,
-body.state-us.no-animation #projects.menu-inner-wrapper,
-body.state-group.no-animation #projects.menu-inner-wrapper,
-body.state-contact.no-animation #projects.menu-inner-wrapper,
-body.state-projects.no-animation #us.menu-inner-wrapper,
-body.state-us.no-animation #us.menu-inner-wrapper,
-body.state-group.no-animation #us.menu-inner-wrapper,
-body.state-contact.no-animation #us.menu-inner-wrapper {
-  height: 17px;
-}
-body.state-projects.no-animation #projects.menu-inner-wrapper .menu-top-border,
-body.state-us.no-animation #projects.menu-inner-wrapper .menu-top-border,
-body.state-group.no-animation #projects.menu-inner-wrapper .menu-top-border,
-body.state-contact.no-animation #projects.menu-inner-wrapper .menu-top-border,
-body.state-projects.no-animation #us.menu-inner-wrapper .menu-top-border,
-body.state-us.no-animation #us.menu-inner-wrapper .menu-top-border,
-body.state-group.no-animation #us.menu-inner-wrapper .menu-top-border,
-body.state-contact.no-animation #us.menu-inner-wrapper .menu-top-border {
-  width: 100%;
-}
-body.state-projects.no-animation #projects.menu-inner-wrapper .menu-main-link-wrapper,
-body.state-us.no-animation #projects.menu-inner-wrapper .menu-main-link-wrapper,
-body.state-group.no-animation #projects.menu-inner-wrapper .menu-main-link-wrapper,
-body.state-contact.no-animation #projects.menu-inner-wrapper .menu-main-link-wrapper,
-body.state-projects.no-animation #us.menu-inner-wrapper .menu-main-link-wrapper,
-body.state-us.no-animation #us.menu-inner-wrapper .menu-main-link-wrapper,
-body.state-group.no-animation #us.menu-inner-wrapper .menu-main-link-wrapper,
-body.state-contact.no-animation #us.menu-inner-wrapper .menu-main-link-wrapper {
-  left: 0;
-  width: 100%;
-  transform: rotate(0deg);
-}
-body.state-projects.no-animation #group.menu-inner-wrapper,
-body.state-us.no-animation #group.menu-inner-wrapper,
-body.state-group.no-animation #group.menu-inner-wrapper,
-body.state-contact.no-animation #group.menu-inner-wrapper,
-body.state-projects.no-animation #contact.menu-inner-wrapper,
-body.state-us.no-animation #contact.menu-inner-wrapper,
-body.state-group.no-animation #contact.menu-inner-wrapper,
-body.state-contact.no-animation #contact.menu-inner-wrapper {
-  height: 17px;
-}
-body.state-projects.no-animation #group.menu-inner-wrapper .menu-top-border,
-body.state-us.no-animation #group.menu-inner-wrapper .menu-top-border,
-body.state-group.no-animation #group.menu-inner-wrapper .menu-top-border,
-body.state-contact.no-animation #group.menu-inner-wrapper .menu-top-border,
-body.state-projects.no-animation #contact.menu-inner-wrapper .menu-top-border,
-body.state-us.no-animation #contact.menu-inner-wrapper .menu-top-border,
-body.state-group.no-animation #contact.menu-inner-wrapper .menu-top-border,
-body.state-contact.no-animation #contact.menu-inner-wrapper .menu-top-border {
-  top: 0;
-  width: 100%;
-}
-body.state-projects.no-animation #group.menu-inner-wrapper .menu-main-link-wrapper,
-body.state-us.no-animation #group.menu-inner-wrapper .menu-main-link-wrapper,
-body.state-group.no-animation #group.menu-inner-wrapper .menu-main-link-wrapper,
-body.state-contact.no-animation #group.menu-inner-wrapper .menu-main-link-wrapper,
-body.state-projects.no-animation #contact.menu-inner-wrapper .menu-main-link-wrapper,
-body.state-us.no-animation #contact.menu-inner-wrapper .menu-main-link-wrapper,
-body.state-group.no-animation #contact.menu-inner-wrapper .menu-main-link-wrapper,
-body.state-contact.no-animation #contact.menu-inner-wrapper .menu-main-link-wrapper {
-  top: 0;
-  width: 100%;
-  transform: rotate(0deg);
+/*------------------------*/
+/*--------- MAIN VIEW-----*/
+.root-state .content-section .page-header h1 {
+  transform: translate(0, 100px);
 }
 .content-section {
-  background-color: #908f8d;
-  color: #e3e3df;
+  padding-left: 300px;
+}
+.content-section .page-header {
+  padding-bottom: 0;
+  overflow-y: hidden;
+  border-bottom: 3px solid #908f8d;
+}
+.content-section .page-header h1 {
+  text-align: right;
+  transform: translate(0, 0);
 }

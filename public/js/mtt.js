@@ -11,91 +11,134 @@
      */
     w.mtt = w.mtt || {
 
-        /**
-         * Current Language from the Website
-         * @type {string}
-         * @global
-         */
-        //url: '/$_lang/$_projects',
-        //                content: '/$_lang/projects',
-        //                template: '/templates/projects',
-        //                langs: ['tr']
-        states: {
-            projects: [{
-                    lang: 'tr',
-                    url: '/tr/projeler',
-                    template: '/templates/projects',
-                    content: '/content/tr/projects'
-                },
-                {
-                    lang: 'eng',
-                    url: '/eng/projects',
-                    templatge: '/templates/projects',
-                    content: '/content/en/projects'
-                }],
-            us: [{
-                    lang: 'tr',
-                    url: '/tr/biz',
-                    template: '/templates/us',
-                    content: '/content/tr/us'
-                }, {
-                    lang: 'eng',
-                    url: '/eng/us',
-                    templatge: '/templates/us',
-                    content: '/content/en/us'
-            }],
-            group: [{
-                    lang: 'tr',
-                    url: '/tr/grup',
-                    template: '/templates/group',
-                    content: '/content/tr/group'
-                }, {
-                    lang: 'eng',
-                    url: '/eng/group',
-                    templatge: '/templates/group',
-                    content: '/content/en/group'
-            }],
-            contact: [{
-                    lang: 'tr',
-                    url: '/tr/iletisim',
-                    template: '/templates/contact',
-                    content: '/content/tr/contact'
-                }, {
-                    lang: 'eng',
-                    url: '/eng/contact',
-                    templatge: '/templates/contact',
-                    content: '/content/en/contact'
-            }]
-        },
-        statesByUrl: {},
+        //states: window.states || {},
 
+        states: [{
+            class: 'root',
+            title: 'MTT',
+            keywords: 'mtt, ahşap, taahhüt',
+            lang: 'tr',
+            url: '/',
+            contentUrl: '/content/tr/projects'
+            },{
+            class: 'root',
+            title: 'MTT',
+            keywords: 'mtt, ahşap, taahhüt',
+            lang: 'en',
+            url: '/en',
+            contentUrl: '/content/tr/projects'
+            },{
+            class: 'projects',
+            title: 'MTT',
+            keywords: 'mtt, ahşap, taahhüt',
+            lang: 'tr',
+            url: '/tr/projeler',
+            contentUrl: '/content/tr/projects'
+            }, {
+            class: 'projects',
+            title: 'MTT',
+            keywords: 'mtt, ahşap, taahhüt',
+            lang: 'eng',
+            url: '/eng/projects',
+            contentUrl: '/content/en/projects'
+            }, {
+            class: 'us',
+            title: 'MTT',
+            keywords: 'mtt, ahşap, taahhüt',
+            lang: 'tr',
+            url: '/tr/biz',
+            contentUrl: '/content/tr/us'
+            }, {
+            class: 'us',
+            title: 'MTT',
+            keywords: 'mtt, ahşap, taahhüt',
+            lang: 'eng',
+            url: '/eng/us',
+            contentUrl: '/content/en/us'
+            }, {
+            class: 'group',
+            title: 'MTT',
+            keywords: 'mtt, ahşap, taahhüt',
+            lang: 'tr',
+            url: '/tr/grup',
+            contentUrl: '/content/tr/group'
+            }, {
+            class: 'group',
+            title: 'MTT',
+            keywords: 'mtt, ahşap, taahhüt',
+            lang: 'eng',
+            url: '/eng/group',
+            contentUrl: '/content/en/group'
+            }, {
+            class: 'contact',
+            title: 'MTT',
+            keywords: 'mtt, ahşap, taahhüt',
+            lang: 'tr',
+            url: '/tr/iletisim',
+            contentUrl: '/content/tr/contact'
+            }, {
+            class: 'contact',
+            title: 'MTT',
+            keywords: 'mtt, ahşap, taahhüt',
+            lang: 'eng',
+            url: '/eng/contact',
+            contentUrl: '/content/en/contact'
+                    }],
+        statesByUrl: {},
+        langByNavigatorLang: {
+            'tr-TR': 'tr',
+            'en-US': 'en',
+            
+        },
         getStateObject: function (stateName, lang) {
             if (mtt.states[stateName]) {
                 mtt.states[stateName].url
             }
         },
         navigate: function (path) {
-            var state,
-                $body = $('body').attr('class', ''),
-                noAnimationTimer = setTimeout(function(){
-                    clearTimeout(noAnimationTimer);
-                    $body.addClass('no-animation');
-                    $body.removeClass('play-animation');
-                }, 3500);
-            if (path && mtt.statesByUrl[path]) {
-                
-                state = mtt.statesByUrl[path];
-                $body.addClass('state-' + state.name);
-                $body.addClass('play-animation');
-                
 
+            var state,
+                $body = $('body'),
+                playAnimation = $body.hasClass('state-root');
+
+            
+            if( !path || path === '/'){
+                //state = 
+            } else if(true) {
+                
+            }
+            
+            
+            $body.attr('class', '');
+
+            if (mtt.noAnimationTimer)
+                clearTimeout(mtt.noAnimationTimer);
+
+            mtt.noAnimationTimer = setTimeout(function () {
+
+                $body.addClass('no-animation');
+                $body.removeClass('play-animation');
+
+            }, 3500);
+
+            if (path && mtt.statesByUrl[path]) {
+
+                state = mtt.statesByUrl[path];
+
+                $body.addClass('state-' + state.class);
+
+
+                $body.addClass('play-animation');
 
                 if (Modernizr.history) {
                     history.pushState(null, null, path);
                 }
+
             } else {
-                
+
+
                 $body.addClass('play-animation');
+
                 $body.attr('class', '').addClass('state-root');
 
             }
@@ -103,13 +146,13 @@
         },
         initStates: function () {
 
-            for (state in this.states) {
-                var cur = this.states[state];
-                for (var i = 0; i < cur.length; i++) {
-                    mtt.statesByUrl[cur[i].url] = cur[i];
-                    mtt.statesByUrl[cur[i].url].name = state;
-                }
+            // init statesByUrl collection object
+
+            for (var i = 0; i < this.states.length; i++) {
+                var cur = this.states[i];
+                mtt.statesByUrl[cur.url] = cur;
             }
+
         },
         /**
          * Main.Init call all functions you want ;)
@@ -118,10 +161,11 @@
         init: function () {
 
             mtt.initStates();
-            console.log(mtt.statesByUrl)
-                /**
-                 * Get Language from User
-                 */
+
+            
+            /**
+             * Get Language from User
+             */
             try {
                 mtt.Lang = window.navigator.userLanguage || window.navigator.language;
             } catch (e) {
@@ -129,7 +173,7 @@
                     console.log(e);
                 }
             }
-
+            console.log('LANG', mtt.Lang, window.navigator.userLanguage ,window.navigator.language)
 
             //
             $('.menu-main-link').on('click', function (e) {
@@ -138,6 +182,7 @@
 
                 var $link = $(this),
                     href = $link.attr('href');
+
                 mtt.navigate(href);
 
             });
@@ -148,6 +193,7 @@
 
                 if (location.pathname !== '/')
                     console.log(mtt.statesByUrl[location.pathname])
+                    
                 mtt.navigate('/');
             });
         }
