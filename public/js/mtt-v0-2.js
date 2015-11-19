@@ -1,5 +1,5 @@
 (function (w) {
-
+    'use strict';
     w.config = {
         lang: 'tr'
     };
@@ -34,10 +34,9 @@
                     duration: '1600ms',
                     animFunction: 'ease-in-out',
                     delay: '0s',
-
-                },{
-                    selector:'.main-view .page-header h1',
-                    animation:'projects-state-anim-in-page-header-h1',
+                }, {
+                    selector: '.main-view .page-header h1',
+                    animation: 'projects-state-anim-in-page-header-h1',
                     duration: '2400ms',
                     animFunction: 'ease-in'
                 }]
@@ -45,8 +44,8 @@
         }, {
             parentUrl: '/',
             class: 'projects',
-            title: 'MTT',
-            keywords: 'mtt, ahşap, taahhüt',
+            title: 'Projeler',
+            keywords: 'mtt, ahşap, taahhüt, projeler',
             lang: 'tr',
             url: '/tr/projeler',
             contentUrl: '/content/tr/projects',
@@ -66,30 +65,35 @@
                     animFunction: 'ease-in-out',
                     delay: '0s',
                     direction: 'reverse'
-
+                }],
+                toSibling: [{
+                    selector: '.main-view .page-header h1',
+                    animation: 'projects-state-anim-in-page-header-h1',
+                    duration: '2400ms',
+                    animFunction: 'ease-in',
+                    direction: 'reverse'
                 }]
             }
-
             }, {
             parentUrl: '/tr/projeler',
             class: 'projects-malls',
-            title: 'MTT',
-            keywords: 'mtt, ahşap, taahhüt',
+            title: 'Projeler | Alışveriş Merkezleri',
+            keywords: 'mtt, ahşap, taahhüt, avmler',
             lang: 'tr',
             url: '/tr/projeler/alis-veris-merkezleri',
             contentUrl: '/content/tr/projects-malls'
             }, {
             parentUrl: '/tr/projeler',
             class: 'projects-hotels',
-            title: 'MTT',
-            keywords: 'mtt, ahşap, taahhüt',
+            title: 'Projeler | Oteller',
+            keywords: 'mtt, ahşap, taahhüt, oteller',
             lang: 'tr',
             url: '/tr/projeler/oteller',
             contentUrl: '/content/tr/projects-hotels'
             }, {
             parentUrl: '/tr/projeler',
             class: 'projects-restaurants',
-            title: 'MTT',
+            title: 'Projeler | Restoranlar',
             keywords: 'mtt, ahşap, taahhüt',
             lang: 'tr',
             url: '/tr/projeler/restoranlar',
@@ -97,11 +101,12 @@
             }, {
             class: 'projects',
             title: 'MTT',
-            keywords: 'mtt, ahşap, taahhüt',
+            keywords: 'Projects',
             lang: 'eng',
             url: '/eng/projects',
             contentUrl: '/content/en/projects'
             }, {
+            parentUrl: '/',
             class: 'us',
             title: 'MTT',
             keywords: 'mtt, ahşap, taahhüt',
@@ -157,8 +162,6 @@
         },
         playAnimation: function (anim) {
             if (anim.animation) {
-
-
                 $(anim.selector).css('animation', (anim.animation || '') +
                     ' ' + (anim.duration || '1s') +
                     ' ' + (anim.animFunction || 'ease') +
@@ -170,7 +173,6 @@
             }
         },
         removeAnimationStyle: function (selector) {
-            console.log($(selector))
             $(selector).attr('style', '');
         },
         navigate(path) {
@@ -187,35 +189,31 @@
 
                 mtt.$body.removeClass(currentState.classState);
                 mtt.$body.addClass(targetState.classState);
-                if (targetState.parentUrl === currentState.url && currentState.animations.toChildren) {
-
+  
+                
+                if (targetState.parentUrl === currentState.url && currentState.animations && currentState.animations.toChildren) {
+console.log('toc');
                     for (var a = 0; a < currentState.animations.toChildren.length; a++) {
                         var animP = currentState.animations.toChildren[a];
                         mtt.playAnimation(animP);
 
-
-
-
                     }
-                }
-                if (targetState.url === currentState.parentUrl && currentState.animations.toParent) {
-
-                    for (var a = 0; a < currentState.animations.toParent.length; a++) {
-                        var animC = currentState.animations.toParent[a];
+                } else if (targetState.url === currentState.parentUrl && currentState.animations && currentState.animations.toParent) {
+console.log('top');
+                    for (var b = 0; b < currentState.animations.toParent.length; b++) {
+                        var animC = currentState.animations.toParent[b];
                         mtt.playAnimation(animC);
-                        
+
+                    }
+                } else if (targetState.parentUrl === currentState.parentUrl && currentState.animations && currentState.animations.toSibling) {
+                    console.log('tos');
+                    for (var c = 0; c < currentState.animations.toSibling.length; c++) {
+                        var animS = currentState.animations.toSibling[c];
+                        mtt.playAnimation(animS);
+
                     }
                 }
 
-
-
-                //                
-                //                
-                //                window.setTimeout(function () {
-                //                    console.log(currentState.classState, targetState.classState)
-                //                    mtt.$body.removeClass(currentState.classState + ' ' + targetState.classIn + ' ' + targetState.classMove + ' ' + currentState.classOut + ' ' + currentState.classMove);
-                //                    mtt.$body.addClass(targetState.classState);
-                //                }, 1000);
                 mtt.currentState = targetState;
                 history.pushState(null, null, path);
 
@@ -269,7 +267,7 @@
         },
         setInitialState: function () {
 
-            mtt.currentState = mtt.statesByUrl[location.pathname] || mtt.statesByUrl['/']
+            mtt.currentState = mtt.statesByUrl[location.pathname] || mtt.statesByUrl['/'];
 
         },
         /**
@@ -280,6 +278,7 @@
             mtt.$body = $('body');
             mtt.$aLink = $('.menu-main-link');
             mtt.initStates();
+
             mtt.setInitialState();
             mtt.$aLink.on('click', function (e) {
                 if (Modernizr.history) {
@@ -293,7 +292,8 @@
                 }
 
             });
-            $(window).on("popstate", function (e) {
+            $(window).on('popstate', function (e) {
+
                 mtt.navigate(location.pathname);
             });
         }

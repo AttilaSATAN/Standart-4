@@ -4,151 +4,136 @@ var mongoose = require('mongoose'),
     Page = mongoose.model('Page'),
     _ = require('lodash');
 
-//var dummyPages = [{
-//    class: 'projects',
-//    title: 'MTT',
-//    keywords: 'mtt, ahşap, taahhüt',
-//    lang: 'tr',
-//    url: '/tr/projeler',
-//    contentUrl: '/content/tr/projects'
-//            }, {
-//    class: 'projects',
-//    title: 'MTT',
-//    keywords: 'mtt, ahşap, taahhüt',
-//    lang: 'eng',
-//    url: '/eng/projects',
-//    contentUrl: '/content/en/projects'
-//            }, {
-//    class: 'us',
-//    title: 'MTT',
-//    keywords: 'mtt, ahşap, taahhüt',
-//    lang: 'tr',
-//    url: '/tr/biz',
-//    contentUrl: '/content/tr/us'
-//            }, {
-//    class: 'us',
-//    title: 'MTT',
-//    keywords: 'mtt, ahşap, taahhüt',
-//    lang: 'eng',
-//    url: '/eng/us',
-//    contentUrl: '/content/en/us'
-//            }, {
-//    class: 'products-and-services',
-//    title: 'MTT',
-//    keywords: 'mtt, ahşap, taahhüt',
-//    lang: 'tr',
-//    url: '/tr/urun-ve-hizmetler',
-//    contentUrl: '/content/tr/products-and-services'
-//            }, {
-//    class: 'products-and-services',
-//    title: 'MTT',
-//    keywords: 'mtt, ahşap, taahhüt',
-//    lang: 'eng',
-//    url: '/eng/products-and-services',
-//    contentUrl: '/content/en/products-and-services'
-//            }, {
-//    class: 'contact',
-//    title: 'MTT',
-//    keywords: 'mtt, ahşap, taahhüt',
-//    lang: 'tr',
-//    url: '/tr/iletisim',
-//    contentUrl: '/content/tr/contact'
-//            }, {
-//    class: 'contact',
-//    title: 'MTT',
-//    keywords: 'mtt, ahşap, taahhüt',
-//    lang: 'eng',
-//    url: '/eng/contact',
-//    contentUrl: '/content/en/contact'
-//}];
 var states = [{
-    class: 'root',
-    title: 'MTT',
-    keywords: 'mtt, ahşap, taahhüt',
-    lang: 'tr',
-    url: '/',
-    contentUrl: '/'
+            class: 'root',
+            title: 'MTT',
+            keywords: 'mtt, ahşap, taahhüt',
+            lang: 'tr',
+            url: '/',
+            contentUrl: '/',
+            animations: {
+                toChildren: [{
+                    selector: '.menu-section',
+                    animation: 'root-state-anim-out-menu-section',
+                    duration: '1400ms',
+                    animFunction: 'ease-in-out',
+                    delay: '0s'
+                }, {
+                    selector: '.main-view',
+                    animation: 'root-state-anim-out-main-view',
+                    duration: '1600ms',
+                    animFunction: 'ease-in-out',
+                    delay: '0s',
+                }, {
+                    selector: '.main-view .page-header h1',
+                    animation: 'projects-state-anim-in-page-header-h1',
+                    duration: '2400ms',
+                    animFunction: 'ease-in'
+                }]
+            }
         }, {
-    class: 'projects',
-    title: 'MTT',
-    keywords: 'mtt, ahşap, taahhüt',
-    lang: 'tr',
-    url: '/tr/projeler',
-    contentUrl: '/content/tr/projects',
-    view: 'main-view'
+            parentUrl: '/',
+            class: 'projects',
+            title: 'Projeler',
+            keywords: 'mtt, ahşap, taahhüt, projeler',
+            lang: 'tr',
+            url: '/tr/projeler',
+            contentUrl: '/content/tr/projects',
+            animations: {
+                toParent: [{
+                    selector: '.menu-section',
+                    animation: 'root-state-anim-out-menu-section',
+                    duration: '1400ms',
+                    animFunction: 'ease-in-out',
+                    delay: '0s',
+                    interation: 1,
+                    direction: 'reverse'
+                }, {
+                    selector: '.main-view',
+                    animation: 'root-state-anim-out-main-view',
+                    duration: '1600ms',
+                    animFunction: 'ease-in-out',
+                    delay: '0s',
+                    direction: 'reverse'
+                }],
+                toSibling: [{
+                    
+                }]
+            }
+
             }, {
-    parentUrl: '/tr/projeler',
-    class: 'projects-malls',
-    title: 'MTT',
-    keywords: 'mtt, ahşap, taahhüt',
-    lang: 'tr',
-    url: '/tr/projeler/alis-veris-merkezleri',
-    contentUrl: '/content/tr/projects-malls'
+            parentUrl: '/tr/projeler',
+            class: 'projects-malls',
+            title: 'Projeler | Alışveriş Merkezleri',
+            keywords: 'mtt, ahşap, taahhüt, avmler',
+            lang: 'tr',
+            url: '/tr/projeler/alis-veris-merkezleri',
+            contentUrl: '/content/tr/projects-malls'
             }, {
-    parentUrl: '/tr/projeler',
-    class: 'projects-hotels',
-    title: 'MTT',
-    keywords: 'mtt, ahşap, taahhüt',
-    lang: 'tr',
-    url: '/tr/projeler/oteller',
-    contentUrl: '/content/tr/projects-hotels'
+            parentUrl: '/tr/projeler',
+            class: 'projects-hotels',
+            title: 'Projeler | Oteller',
+            keywords: 'mtt, ahşap, taahhüt, oteller',
+            lang: 'tr',
+            url: '/tr/projeler/oteller',
+            contentUrl: '/content/tr/projects-hotels'
             }, {
-    parentUrl: '/tr/projeler',
-    class: 'projects-restaurants',
-    title: 'MTT',
-    keywords: 'mtt, ahşap, taahhüt',
-    lang: 'tr',
-    url: '/tr/projeler/restoranlar',
-    contentUrl: '/content/tr/projects-restaurants'
+            parentUrl: '/tr/projeler',
+            class: 'projects-restaurants',
+            title: 'Projeler | Restoranlar',
+            keywords: 'mtt, ahşap, taahhüt',
+            lang: 'tr',
+            url: '/tr/projeler/restoranlar',
+            contentUrl: '/content/tr/projects-restaurants'
             }, {
-    class: 'projects',
-    title: 'MTT',
-    keywords: 'mtt, ahşap, taahhüt',
-    lang: 'eng',
-    url: '/eng/projects',
-    contentUrl: '/content/en/projects'
+            class: 'projects',
+            title: 'MTT',
+            keywords: 'Projects',
+            lang: 'eng',
+            url: '/eng/projects',
+            contentUrl: '/content/en/projects'
             }, {
-    class: 'us',
-    title: 'MTT',
-    keywords: 'mtt, ahşap, taahhüt',
-    lang: 'tr',
-    url: '/tr/biz',
-    contentUrl: '/content/tr/us'
+            class: 'us',
+            title: 'MTT',
+            keywords: 'mtt, ahşap, taahhüt',
+            lang: 'tr',
+            url: '/tr/biz',
+            contentUrl: '/content/tr/us'
             }, {
-    class: 'us',
-    title: 'MTT',
-    keywords: 'mtt, ahşap, taahhüt',
-    lang: 'eng',
-    url: '/eng/us',
-    contentUrl: '/content/en/us'
+            class: 'us',
+            title: 'MTT',
+            keywords: 'mtt, ahşap, taahhüt',
+            lang: 'eng',
+            url: '/eng/us',
+            contentUrl: '/content/en/us'
             }, {
-    class: 'products-and-services',
-    title: 'MTT',
-    keywords: 'mtt, ahşap, taahhüt',
-    lang: 'tr',
-    url: '/tr/urun-ve-hizmetler',
-    contentUrl: '/content/tr/products-and-services'
+            class: 'products-and-services',
+            title: 'MTT',
+            keywords: 'mtt, ahşap, taahhüt',
+            lang: 'tr',
+            url: '/tr/urun-ve-hizmetler',
+            contentUrl: '/content/tr/products-and-services'
             }, {
-    class: 'products-and-services',
-    title: 'MTT',
-    keywords: 'mtt, ahşap, taahhüt',
-    lang: 'eng',
-    url: '/eng/products-and-services',
-    contentUrl: '/content/en/products-and-services'
+            class: 'products-and-services',
+            title: 'MTT',
+            keywords: 'mtt, ahşap, taahhüt',
+            lang: 'eng',
+            url: '/eng/products-and-services',
+            contentUrl: '/content/en/products-and-services'
             }, {
-    class: 'contact',
-    title: 'MTT',
-    keywords: 'mtt, ahşap, taahhüt',
-    lang: 'tr',
-    url: '/tr/iletisim',
-    contentUrl: '/content/tr/contact'
+            class: 'contact',
+            title: 'MTT',
+            keywords: 'mtt, ahşap, taahhüt',
+            lang: 'tr',
+            url: '/tr/iletisim',
+            contentUrl: '/content/tr/contact'
             }, {
-    class: 'contact',
-    title: 'MTT',
-    keywords: 'mtt, ahşap, taahhüt',
-    lang: 'eng',
-    url: '/eng/contact',
-    contentUrl: '/content/en/contact'
+            class: 'contact',
+            title: 'MTT',
+            keywords: 'mtt, ahşap, taahhüt',
+            lang: 'eng',
+            url: '/eng/contact',
+            contentUrl: '/content/en/contact'
         }];
 
 var statesByUrl = {};
