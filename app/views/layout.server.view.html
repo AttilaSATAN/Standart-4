@@ -47,9 +47,7 @@
 <body class="{{state}}">
     <!--	<header class="navbar navbar-fixed-top navbar-inverse"></header>-->
     {% block menu %}{% endblock %}
-    <section class="container">
-    </section>
-    <section class="main-view" id="main-view">
+    <section class="main-view">
         <div class="content-section">
             <div class="content-outer-wrapper">
                 <div class="content-inner-wrapper" id="projects-content">
@@ -58,6 +56,22 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <h1>Projeler</h1>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container-fluid state-content">
+                        <div class="project-wrapper row">
+                            <div class="col-md-6">
+                                <div class="project-inner-wrapper">
+                                    <div class="project-cover"><img src="/media/img/cumhurbaskanligi-camii.jpeg" alt="" class="img-responsive"></div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="project-inner-wrapper">
+                                    <div class="project-header">
+                                        <h3>Cumhurbaşkanlığı Camii</h3>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -71,8 +85,7 @@
 
     <!--Embedding The User Object-->
     <script type="text/javascript">
-        var user = {{user | json | safe}};
-
+        //var user = {{user | json | safe}};
     </script>
 
     <!--Application JavaScript Files-->
@@ -81,7 +94,9 @@
 
     </script>
     {% for jsFile in jsFiles %}
-    <script type="text/javascript" src="{{jsFile}}"></script>{% endfor %} {% if envoirment == 'development' %}
+    <script type="text/javascript" src="{{jsFile}}"></script>
+    {% endfor %} 
+    {% if envoirment == 'development' %}
     <!--Livereload script rendered -->
     <script type="text/javascript" src="http://localhost:35729/livereload.js"></script>
     {% endif %}

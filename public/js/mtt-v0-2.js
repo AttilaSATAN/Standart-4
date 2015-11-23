@@ -39,6 +39,11 @@
                     animation: 'projects-state-anim-in-page-header-h1',
                     duration: '2400ms',
                     animFunction: 'ease-in'
+                }, {
+                    selector: '{{$}} .menu-main-link > h1',
+                    animation: 'main-menu-active-state-in-menu-main-link',
+                    duration: '2000ms',
+                    animFunction: 'ease-in-out'
                 }]
             }
         }, {
@@ -67,11 +72,22 @@
                     direction: 'reverse'
                 }],
                 toSibling: [{
-                    selector: '.main-view .page-header h1',
-                    animation: 'projects-state-anim-in-page-header-h1',
-                    duration: '2400ms',
-                    animFunction: 'ease-in',
-                    direction: 'reverse'
+                    selector:'.content-section',
+                    animation:'content-section-out',
+                    duration:'1000ms',
+                    animFunction:'cubic-bezier(0.090, 0.870, 0.365, 0.985)',
+                    
+                },{
+                    selector:'.main-view',
+                    animation:'main-view-out',
+                    duration:'2400ms',
+                    animFunction:' ease-in',
+                    
+                }, {
+                    selector: '{{$}} .menu-main-link > h1',
+                    animation: 'main-menu-active-state-in-menu-main-link',
+                    duration: '2000ms',
+                    animFunction: 'ease-in-out'
                 }]
             }
             }, {
@@ -104,7 +120,43 @@
             keywords: 'Projects',
             lang: 'eng',
             url: '/eng/projects',
-            contentUrl: '/content/en/projects'
+            contentUrl: '/content/en/projects',
+            animations: {
+                toParent: [{
+                    selector: '.menu-section',
+                    animation: 'root-state-anim-out-menu-section',
+                    duration: '1400ms',
+                    animFunction: 'ease-in-out',
+                    delay: '0s',
+                    interation: 1,
+                    direction: 'reverse'
+                }, {
+                    selector: '.main-view',
+                    animation: 'root-state-anim-out-main-view',
+                    duration: '1600ms',
+                    animFunction: 'ease-in-out',
+                    delay: '0s',
+                    direction: 'reverse'
+                }],
+                toSibling: [{
+                    selector:'.content-section',
+                    animation:'content-section-out',
+                    duration:'1000ms',
+                    animFunction:'cubic-bezier(0.090, 0.870, 0.365, 0.985)',
+                    
+                },{
+                    selector:'.main-view',
+                    animation:'main-view-out',
+                    duration:'2400ms',
+                    animFunction:' ease-in',
+                    
+                }, {
+                    selector: '{{$}} .menu-main-link > h1',
+                    animation: 'main-menu-active-state-in-menu-main-link',
+                    duration: '2000ms',
+                    animFunction: 'ease-in-out'
+                }]
+            }
             }, {
             parentUrl: '/',
             class: 'us',
@@ -112,42 +164,262 @@
             keywords: 'mtt, ahşap, taahhüt',
             lang: 'tr',
             url: '/tr/biz',
-            contentUrl: '/content/tr/us'
+            contentUrl: '/content/tr/us',
+            animations: {
+                toParent: [{
+                    selector: '.menu-section',
+                    animation: 'root-state-anim-out-menu-section',
+                    duration: '1400ms',
+                    animFunction: 'ease-in-out',
+                    delay: '0s',
+                    interation: 1,
+                    direction: 'reverse'
+                }, {
+                    selector: '.main-view',
+                    animation: 'root-state-anim-out-main-view',
+                    duration: '1600ms',
+                    animFunction: 'ease-in-out',
+                    delay: '0s',
+                    direction: 'reverse'
+                }],
+                toSibling: [{
+                    selector:'.content-section',
+                    animation:'content-section-out',
+                    duration:'1000ms',
+                    animFunction:'cubic-bezier(0.090, 0.870, 0.365, 0.985)',
+                    
+                },{
+                    selector:'.main-view',
+                    animation:'main-view-out',
+                    duration:'2400ms',
+                    animFunction:' ease-in',
+                    
+                }, {
+                    selector: '{{$}} .menu-main-link > h1',
+                    animation: 'main-menu-active-state-in-menu-main-link',
+                    duration: '2000ms',
+                    animFunction: 'ease-in-out'
+                }]
+            }
             }, {
             class: 'us',
             title: 'MTT',
             keywords: 'mtt, ahşap, taahhüt',
             lang: 'eng',
             url: '/eng/us',
-            contentUrl: '/content/en/us'
+            contentUrl: '/content/en/us',
+            animations: {
+                toParent: [{
+                    selector: '.menu-section',
+                    animation: 'root-state-anim-out-menu-section',
+                    duration: '1400ms',
+                    animFunction: 'ease-in-out',
+                    delay: '0s',
+                    interation: 1,
+                    direction: 'reverse'
+                }, {
+                    selector: '.main-view',
+                    animation: 'root-state-anim-out-main-view',
+                    duration: '1600ms',
+                    animFunction: 'ease-in-out',
+                    delay: '0s',
+                    direction: 'reverse'
+                }],
+                toSibling: [{
+                    selector:'.content-section',
+                    animation:'content-section-out',
+                    duration:'1000ms',
+                    animFunction:'cubic-bezier(0.090, 0.870, 0.365, 0.985)',
+                    
+                },{
+                    selector:'.main-view',
+                    animation:'main-view-out',
+                    duration:'2400ms',
+                    animFunction:' ease-in',
+                    
+                }, {
+                    selector: '{{$}} .menu-main-link > h1',
+                    animation: 'main-menu-active-state-in-menu-main-link',
+                    duration: '2000ms',
+                    animFunction: 'ease-in-out'
+                }]
+            }
             }, {
+            parentUrl: '/',
             class: 'products-and-services',
             title: 'MTT',
             keywords: 'mtt, ahşap, taahhüt',
             lang: 'tr',
             url: '/tr/urun-ve-hizmetler',
-            contentUrl: '/content/tr/products-and-services'
+            contentUrl: '/content/tr/products-and-services',
+            animations: {
+                toParent: [{
+                    selector: '.menu-section',
+                    animation: 'root-state-anim-out-menu-section',
+                    duration: '1400ms',
+                    animFunction: 'ease-in-out',
+                    delay: '0s',
+                    interation: 1,
+                    direction: 'reverse'
+                }, {
+                    selector: '.main-view',
+                    animation: 'root-state-anim-out-main-view',
+                    duration: '1600ms',
+                    animFunction: 'ease-in-out',
+                    delay: '0s',
+                    direction: 'reverse'
+                }],
+                toSibling: [{
+                    selector:'.content-section',
+                    animation:'content-section-out',
+                    duration:'1000ms',
+                    animFunction:'cubic-bezier(0.090, 0.870, 0.365, 0.985)',
+                    
+                },{
+                    selector:'.main-view',
+                    animation:'main-view-out',
+                    duration:'2400ms',
+                    animFunction:' ease-in',
+                    
+                }, {
+                    selector: '{{$}} .menu-main-link > h1',
+                    animation: 'main-menu-active-state-in-menu-main-link',
+                    duration: '2000ms',
+                    animFunction: 'ease-in-out'
+                }]
+            }
             }, {
+            parentUrl: '/',
             class: 'products-and-services',
             title: 'MTT',
             keywords: 'mtt, ahşap, taahhüt',
             lang: 'eng',
             url: '/eng/products-and-services',
-            contentUrl: '/content/en/products-and-services'
+            contentUrl: '/content/en/products-and-services',
+            animations: {
+                toParent: [{
+                    selector: '.menu-section',
+                    animation: 'root-state-anim-out-menu-section',
+                    duration: '1400ms',
+                    animFunction: 'ease-in-out',
+                    delay: '0s',
+                    interation: 1,
+                    direction: 'reverse'
+                }, {
+                    selector: '.main-view',
+                    animation: 'root-state-anim-out-main-view',
+                    duration: '1600ms',
+                    animFunction: 'ease-in-out',
+                    delay: '0s',
+                    direction: 'reverse'
+                }],
+                toSibling: [{
+                    selector:'.content-section',
+                    animation:'content-section-out',
+                    duration:'1000ms',
+                    animFunction:'cubic-bezier(0.090, 0.870, 0.365, 0.985)',
+                    
+                },{
+                    selector:'.main-view',
+                    animation:'main-view-out',
+                    duration:'2400ms',
+                    animFunction:' ease-in',
+                    
+                }, {
+                    selector: '{{$}} .menu-main-link > h1',
+                    animation: 'main-menu-active-state-in-menu-main-link',
+                    duration: '2000ms',
+                    animFunction: 'ease-in-out'
+                }]
+            }
             }, {
+            parentUrl: '/',
             class: 'contact',
             title: 'MTT',
             keywords: 'mtt, ahşap, taahhüt',
             lang: 'tr',
             url: '/tr/iletisim',
-            contentUrl: '/content/tr/contact'
+            contentUrl: '/content/tr/contact',
+            animations: {
+                toParent: [{
+                    selector: '.menu-section',
+                    animation: 'root-state-anim-out-menu-section',
+                    duration: '1400ms',
+                    animFunction: 'ease-in-out',
+                    delay: '0s',
+                    interation: 1,
+                    direction: 'reverse'
+                }, {
+                    selector: '.main-view',
+                    animation: 'root-state-anim-out-main-view',
+                    duration: '1600ms',
+                    animFunction: 'ease-in-out',
+                    delay: '0s',
+                    direction: 'reverse'
+                }],
+                toSibling: [{
+                    selector:'.content-section',
+                    animation:'content-section-out',
+                    duration:'1000ms',
+                    animFunction:'cubic-bezier(0.090, 0.870, 0.365, 0.985)',
+                    
+                },{
+                    selector:'.main-view',
+                    animation:'main-view-out',
+                    duration:'2400ms',
+                    animFunction:' ease-in',
+                    
+                }, {
+                    selector: '{{$}} .menu-main-link > h1',
+                    animation: 'main-menu-active-state-in-menu-main-link',
+                    duration: '2000ms',
+                    animFunction: 'ease-in-out'
+                }]
+            }
             }, {
+            parentUrl: '/',
             class: 'contact',
             title: 'MTT',
             keywords: 'mtt, ahşap, taahhüt',
             lang: 'eng',
             url: '/eng/contact',
-            contentUrl: '/content/en/contact'
+            contentUrl: '/content/en/contact',
+            animations: {
+                toParent: [{
+                    selector: '.menu-section',
+                    animation: 'root-state-anim-out-menu-section',
+                    duration: '1400ms',
+                    animFunction: 'ease-in-out',
+                    delay: '0s',
+                    interation: 1,
+                    direction: 'reverse'
+                }, {
+                    selector: '.main-view',
+                    animation: 'root-state-anim-out-main-view',
+                    duration: '1600ms',
+                    animFunction: 'ease-in-out',
+                    delay: '0s',
+                    direction: 'reverse'
+                }],
+                toSibling: [{
+                    selector:'.content-section',
+                    animation:'content-section-out',
+                    duration:'1000ms',
+                    animFunction:'cubic-bezier(0.090, 0.870, 0.365, 0.985)',
+                    
+                },{
+                    selector:'.main-view',
+                    animation:'main-view-out',
+                    duration:'2400ms',
+                    animFunction:' ease-in',
+                    
+                }, {
+                    selector: '{{$}} .menu-main-link > h1',
+                    animation: 'main-menu-active-state-in-menu-main-link',
+                    duration: '2000ms',
+                    animFunction: 'ease-in-out'
+                }]
+            }
         }],
         currentState: {
             url: '/',
@@ -160,8 +432,9 @@
         animationStartWrapper: function (cb) {
 
         },
-        playAnimation: function (anim) {
+        playAnimation: function (anim, selector) {
             if (anim.animation) {
+
                 $(anim.selector).css('animation', (anim.animation || '') +
                     ' ' + (anim.duration || '1s') +
                     ' ' + (anim.animFunction || 'ease') +
@@ -189,27 +462,39 @@
 
                 mtt.$body.removeClass(currentState.classState);
                 mtt.$body.addClass(targetState.classState);
-  
-                
+
+
                 if (targetState.parentUrl === currentState.url && currentState.animations && currentState.animations.toChildren) {
-console.log('toc');
+
                     for (var a = 0; a < currentState.animations.toChildren.length; a++) {
                         var animP = currentState.animations.toChildren[a];
-                        mtt.playAnimation(animP);
+                        if (animP) {
+
+                            animP.selector = animP.selector.replace('{{$}}', '#' + targetState.class);
+                            mtt.playAnimation(animP);
+                        }
 
                     }
                 } else if (targetState.url === currentState.parentUrl && currentState.animations && currentState.animations.toParent) {
-console.log('top');
+
                     for (var b = 0; b < currentState.animations.toParent.length; b++) {
                         var animC = currentState.animations.toParent[b];
-                        mtt.playAnimation(animC);
+                        if (animC) {
+
+                            animC.selector = animC.selector.replace('{{$}}', '#' + targetState.class);
+                            mtt.playAnimation(animC);
+                        }
 
                     }
                 } else if (targetState.parentUrl === currentState.parentUrl && currentState.animations && currentState.animations.toSibling) {
-                    console.log('tos');
+
                     for (var c = 0; c < currentState.animations.toSibling.length; c++) {
-                        var animS = currentState.animations.toSibling[c];
-                        mtt.playAnimation(animS);
+                        var animS = _.extend({},currentState.animations.toSibling[c]);
+                        if (animS) {
+
+                            animS.selector = animS.selector.replace('{{$}}', '#' + targetState.class);
+                            mtt.playAnimation(animS);
+                        }
 
                     }
                 }
@@ -276,7 +561,7 @@ console.log('top');
          */
         init: function () {
             mtt.$body = $('body');
-            mtt.$aLink = $('.menu-main-link');
+            mtt.$aLink = $('.menu-main-link, .home-button');
             mtt.initStates();
 
             mtt.setInitialState();

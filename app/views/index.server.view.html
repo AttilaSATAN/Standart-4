@@ -1,23 +1,28 @@
 {% extends 'layout.server.view.html' %} {% block menu %}
 <section class="menu-section">
-    <nav class="menu-outer-wrapper">
-        <div class="menu-inner-wrapper" id="projects">
-            <div class="menu-top-border"></div>
-            <div class="menu-main-link-wrapper"><a href="/tr/projeler" class="menu-main-link"><h1>PROJELER</h1></a></div>
-        </div>
-        <div class="menu-inner-wrapper" id="us">
-            <div class="menu-top-border"></div>
-            <div class="menu-main-link-wrapper"><a href="/tr/biz" class="menu-main-link"><h1>BİZİ TANIYIN</h1></a></div>
-        </div>
-        <div class="menu-inner-wrapper" id="group">
-            <div class="menu-top-border"></div>
-            <div class="menu-main-link-wrapper"><a href="/tr/grup" class="menu-main-link"><h1>GRUP</h1></a></div>
-        </div>
-        <div class="menu-inner-wrapper" id="contact">
-            <div class="menu-top-border"></div>
-            <div class="menu-main-link-wrapper"><a href="/tr/iletisim" class="menu-main-link"><h1>İLETİŞİM</h1></a></div>
-        </div>
-    </nav>
+    <div class="menu-container">
+        <nav class="menu-header-outer-wrapper">
+            <div class="menu-header-inner-wrapper"><a class="home-button" href="/">MTT AHŞAP DEKORASYON</a></div>
+        </nav>
+        <nav class="menu-outer-wrapper">
+            <div class="menu-inner-wrapper" id="projects">
+                <div class="menu-top-border"></div>
+                <div class="menu-main-link-wrapper"><a href="/tr/projeler" class="menu-main-link"><h1>PROJELER</h1></a></div>
+            </div>
+            <div class="menu-inner-wrapper" id="us">
+                <div class="menu-top-border"></div>
+                <div class="menu-main-link-wrapper"><a href="/tr/biz" class="menu-main-link"><h1>BİZİ TANIYIN</h1></a></div>
+            </div>
+            <div class="menu-inner-wrapper" id="group">
+                <div class="menu-top-border"></div>
+                <div class="menu-main-link-wrapper"><a href="/tr/grup" class="menu-main-link"><h1>GRUP</h1></a></div>
+            </div>
+            <div class="menu-inner-wrapper" id="contact">
+                <div class="menu-top-border"></div>
+                <div class="menu-main-link-wrapper"><a href="/tr/iletisim" class="menu-main-link"><h1>İLETİŞİM</h1></a></div>
+            </div>
+        </nav>
+    </div>
 </section>
 
 {% endblock %}
