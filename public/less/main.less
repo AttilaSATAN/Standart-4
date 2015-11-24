@@ -1,13 +1,13 @@
 @import 'page-variables';
 @import 'animations-v0-2';
-@menu-borders: 3px solid @TextColor;
+@menu-borders: 3px solid @text-and-border-color;
 html {
     height: 100%;
     box-sizing: border-box;
 }
 body {
     height: 100%;
-    color: @TextColor;
+    color: @text-and-border-color;
     background-color: @BodyBackground;
     overflow: hidden;
 }
@@ -34,6 +34,7 @@ body {
     width: 100%;
     background-color: @MenuSectionBackgroundColor;
     z-index: 1;
+    overflow: hidden;
 }
 .menu-section {
     z-index: 2;
@@ -49,7 +50,7 @@ body {
     a:active,
     a:focus {
         text-decoration: none;
-        color: @TextColor;
+        color: @text-and-border-color;
     }
 }
 .menu-container {
@@ -70,7 +71,7 @@ body {
     width: 100%;
 }
 .menu-top-border {
-    border-top: 3px solid #908f8d;
+    border-top: @menu-borders;
     position: absolute;
 }
 .menu-inner-wrapper {
@@ -92,10 +93,11 @@ a.menu-main-link {
         text-align: right;
         margin-top: 0;
         padding-top: 0;
-        font-size: 16px;
         padding-right: 10px;
-        color: @TextColor;
+        color: @text-and-border-color;
+        font-size: 19px;
         font-weight: 700;
+        line-height: 1.6em;
     }
 }
 #projects.menu-inner-wrapper,
@@ -137,6 +139,7 @@ a.menu-main-link {
     }
 }
 .content-section {
+    overflow: auto;
     padding-left: 300px;
     height: 100%;
     transform-origin: top right;
@@ -173,13 +176,101 @@ nav.menu-header-outer-wrapper {
 
 /*-------------------------*/
 
+.t-container {
+    margin-right: auto;
+    margin-left: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+    .t-col-md-3,
+    .t-col-md-4,
+    .t-col-md-5,
+    .t-col-md-6,
+    .t-col-md-7,
+    .t-col-md-8,
+    .t-col-md-9 {
+    position: relative;
+    min-height: 1px;
+    overflow: hidden;
+}
+
+/*-------------------------*/
+.project-wrapper{
+//    margin: 20px 0 0 0;
+    margin:0;
+    
+}
+.prject-img-frame {
+    width: 0;
+    height: 0;
+    position: absolute;
+}
+.project-header {
+    border-top: @menu-borders;
+    text-align: center;
+    h1,
+    h2,
+    h3 {
+        margin-top: 100px;
+        font-size: 19px;
+        font-weight: 700;
+        line-height: 1.6em;
+    }
+}
+@media(min-width: @screen-md-min) {
+    .t-col-md-3,
+    .t-col-md-4,
+    .t-col-md-5,
+    .t-col-md-6,
+    .t-col-md-7,
+    .t-col-md-8,
+    .t-col-md-9 {
+        float: left;
+    }
+    .t-col-md-3 {
+        width: 25%;
+    }
+    .t-col-md-4 {
+        width: 33.33333333%;
+    }
+    .t-col-md-5 {
+        width: 41.66666667%;
+    }
+    .t-col-md-6 {
+        width: 50%;
+    }
+    .t-col-md-7 {
+        width: 58.33333333%;
+    }
+    .t-col-md-8 {
+        width: 66.66666667%;
+    }
+    .t-col-md-9 {
+        width: 75%;
+    }
+    .t-container {
+        width: 682px;
+    }
+    .prject-img-frame {
+        background-color: @MenuSectionBackgroundColor;
+        border-top: @menu-borders;
+        width: 150%;
+        height: 100%;
+        transform-origin: 0 0;
+        transform: rotate(65.5deg) translateY(-2px);
+    }
+    .project-cover-img {
+        border-bottom: @menu-borders;
+    }
+}
 .state-content {
     margin-top: 20px;
     .row.project-wrapper {
-        margin: 0;
+        
         .col-md-6 {
             padding: 0;
-            h3{
+            .header-spacer {}
+            h3 {
                 text-align: center;
             }
         }

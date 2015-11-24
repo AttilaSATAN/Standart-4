@@ -43,7 +43,7 @@
         transform: translate(0, -100px);
     }
     51% {
-        color: @TextColor;
+        color: @text-and-border-color;
         transform: translate(0, 100px);
     }
     100% {
@@ -57,13 +57,13 @@
 }
 @keyframes content-section-out {
     0% {}
-    40% {
-        opacity: 1;
-        transform: rotate(-35.5deg);
+    30% {
+        transform-origin: 50% 50%;
+        transform: scale(.6) translate(0, 0);
+        opacity: 0.5;
     }
     50% {
-        transform: translate(400px, 200px) scale(.8);
-        
+        transform: translate(1300px, 0);
         opacity: 0;
     }
     51%{
